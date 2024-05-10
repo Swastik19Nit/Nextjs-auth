@@ -1,113 +1,146 @@
+"use client"
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import SignUpPage from "../app/SignUpPage/page"; 
+import LoginPage from "@/app/LoginPage/page"; 
+import { auth } from "@/services/firebase";
+import { signInWithPopup,GoogleAuthProvider } from "firebase/auth";
+import {useAuthState} from "react-firebase-hooks/auth"
 
 export default function Home() {
+
+  const [user,setuser]=useAuthState(auth);
+
+  const googleAuth = new GoogleAuthProvider();
+  
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleResize = () => {
+    setIsSmallScreen(window.innerWidth <= 767);
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleSignUpWithEmail = () => {
+    router.push("/SignUpPage",);
+  };
+
+  const handleSignUpWithGoogle =async () => {
+    try {
+      const result = await signInWithPopup(auth, googleAuth);
+      if (result.user) {
+        router.push("/Components"); 
+      }
+    } catch (error) {
+      console.error("Google Sign-in Error:", error);
+    }
+  };
+
+  const handleLogin = () => {
+    router.push("/LoginPage");
+  };
+
+  useEffect(()=>{
+    console.log(user)
+  },[user])
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <div className="bg-slate-900 min-h-screen justify-center items-center">
+      {pathname === "/" && (
+        <div className="flex gap-5 max-md:flex-col max-md:gap-0 flex-grow">
+          <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+              loading="lazy"
+              src="/image.png"
+              alt="..."
+              className="grow w-full aspect-[0.77] max-md:max-w-full max-md:max-h-screen"
+              width={500}
+              height={385}
             />
-          </a>
+          </div>
+          <div className="flex flex-col mt-16 items-center w-6/12 max-md:ml-0 max-md:w-full max-md:mt-0">
+            <div className="flex flex-col max-md:mt-10 max-md:max-w-full">
+              <div className="flex flex-col pb-11 max-md:px-5 max-md:max-w-full max-md:ml-20 max-md:mr-10 max-md:mt-[-170px]">
+                <div className="flex gap-2.5 justify-between self-center text-4xl text-white tracking-[2.16px] max-md:max-w-full max-md:mr-10">
+                  <div>Lo</div>
+                  <div className="justify-center px-3 py-1.5 uppercase bg-sky-500 rounded-xl">
+                    Go
+                  </div>
+                </div>
+                <div className="mt-4 text-base tracking-wider leading-6 text-white max-md:max-w-full mb-14 max-md:mb-0">
+                  Journey to a trillion miles starts from here!!
+                </div>
+              </div>
+              <div
+                id="signUpDiv"
+                className={`flex flex-col items-center self-end px-8 py-6 font-semibold text-center leading-[140%] rounded-[25px] max-w-[450px] max-md:px-24 max-md:ml-8 max-md:mr-[-16px] ${
+                  isSmallScreen
+                    ? "bg-transparent border-transparent"
+                    : "bg-white bg-opacity-10 border border-solid border-white border-opacity-20"
+                }`}
+              >
+                <div className="text-2xl tracking-widest text-white">Sign up</div>
+                <div className="mt-2 text-sm tracking-wider text-white">
+                  Choose a sign-up method
+                </div>
+                <div
+                  className="flex flex-col justify-center self-stretch px-14 py-3 mt-14 w-full text-base tracking-wider text-white bg-gray-800 rounded-lg border-2 border-solid border-slate-600 max-md:px-4 max-md:mt-8 max-w-[320px]"
+                  onClick={handleSignUpWithGoogle}
+                >
+                  <div className="flex gap-2 max-md:mr-2 max-md:ml-1 items-center">
+                    <Image
+                      loading="lazy"
+                      src="/google.png"
+                      alt="Email Logo"
+                      className="shrink-0 w-6 aspect-square"
+                      width={24}
+                      height={24}
+                    />
+                    <div className="whitespace-nowrap max-md:px-4">
+                      Sign up with Google
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="flex flex-col  self-stretch px-14 py-3 mt-5 w-full text-base tracking-wider text-white bg-gray-800 rounded-lg border-2 border-solid border-slate-600 max-md:px-4 max-md:mt-5 max-w-[320px]"
+                  onClick={handleSignUpWithEmail}
+                >
+                  <div className="flex gap-2 max-md:mr-2 max-md:ml-1 items-center">
+                    <Image
+                      loading="lazy"
+                      src="/mail.png"
+                      alt="Email Logo"
+                      className="shrink-0 w-6 aspect-square"
+                      width={24}
+                      height={24}
+                    />
+                    <div className="whitespace-nowrap max-md:px-4">
+                      Sign up with Email
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex gap-2 mt-14 text-xs tracking-wider max-md:mt-8">
+                  <div className="text-white">Already a user?</div>
+                  <div className="text-sky-500 cursor-pointer" onClick={handleLogin}>
+                    Log in
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      )}
+      {pathname === "/signup" && <SignUpPage onClose={() => Router.back()} />}
+      {pathname === "/login" && <LoginPage onClose={() => Router.back()} />}
+    </div>
   );
 }
