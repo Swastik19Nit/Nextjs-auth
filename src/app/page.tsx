@@ -59,7 +59,7 @@ export default function Home() {
           <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
             <Image
               loading="lazy"
-              src="/image.png"
+              src="/Image.png"
               alt="..."
               className="grow w-full aspect-[0.77] max-md:max-w-full max-md:max-h-screen"
               width={500}
