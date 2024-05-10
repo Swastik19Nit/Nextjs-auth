@@ -39,7 +39,7 @@
     return (
       <div className="flex flex-col items-center pb-20 bg-gray-800 h-screen overflow-hidden">
         <div className="flex gap-5 self-stretch px-20 py-5 w-full bg-gray-800 border-b-2 border-solid border-slate-600 max-md:flex-wrap max-md:px-5 max-md:max-w-full max-md:-5">
-          <div className="flex flex-1 gap-1.5 justify-center text-2xl tracking-widest text-white whitespace-nowrap">
+          <div className="flex flex-1 gap-1.5 justify-center text-2xl tracking-widest text-white whitespace-normal">
             <div className="my-auto">Lo</div>
             <div className="justify-center px-2 py-1 uppercase bg-sky-500 rounded-lg">
               Go
@@ -77,39 +77,12 @@
           
         </div>
         <div className="flex overflow-x-auto flex-col items-start mt-5 max-w-full w-[1120px] ">
-          <div className="px-5 max-md:max-w-full">
+          <div className="px-4 max-md:max-w-full">
             <div className="flex gap-5 max-md:flex-col  max-md:gap-0">
-              
-            <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
-                {/* <div className="flex flex-col grow justify-center max-md:mt-5">
-                  <div className="flex flex-col p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600">
-                    <div className="flex gap-2 items-start">
-                      <img
-                        loading="lazy"
-                        srcSet="..."
-                        className="shrink-0 mt-2.5 max-w-full aspect-square w-[120px]"
-                      />
-                      <div className="flex flex-col">
-                        <div className="text-base font-semibold tracking-wider leading-6 text-white">
-                          Astro Physics
-                        </div>
-                        <div className="mt-2 text-xs tracking-wider leading-4 text-white text-opacity-80">
-                          Covers fundamentals, design, construction, operation and
-                          programming of robots. Covers fundamentals, design,
-                          construction, operation and{" "}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="justify-center items-center px-16 py-3.5 mt-5 text-base font-bold tracking-wider leading-6 text-center text-white uppercase whitespace-nowrap bg-gray-800 rounded-lg border border-solid border-slate-600 max-md:px-5">
-                      Read1
-                    </div>
-                  </div>
-                </div> */}
-              </div>
-              <div className="flex flex-col  w-3/12 max-md:ml-0 max-md:w-full">
+              {/* <div className="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
                 <div className="flex flex-col grow justify-center">
-                  <div className=" p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600 ">
-                    <div className="flex gap-2">
+                  <div className="w-full bg-gray-800 rounded-xl border border-solid border-slate-600 ">
+                    <div className=" gap-2 ">
                       <Image
                         loading="lazy"
                         alt="..."
@@ -119,9 +92,39 @@
                         height={385}
                         className="shrink-0 my-auto max-w-full aspect-square w-[120px]"
                       />
-                      <div className="flex flex-col">
-                        <div className="text-base font-semibold tracking-wider leading-6 text-white">
+                      <div className="flex flex-col ml-[10px]">
+                        <div className="text-base font-semibold tracking-wider leading-6 text-white whitespace-normal">
                           Introduction to Rocket Science
+                        </div>
+                        <div className="mt-2 text-xs tracking-wider leading-4 text-white text-opacity-80 whitespace-normal">
+                          Covers fundamentals, design, construction, operation and
+                          programming of robots. Covers fundamentals, design,
+                          construction, operation and{" "}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="justify-center px-12 py-3.5 mt-5 text-base font-bold tracking-wider leading-6 text-center text-white uppercase whitespace-nowrap bg-gray-800 rounded-lg border border-solid border-slate-600 max-md:px-5 w-[220px] ml-1 mb-2">
+                      Read
+                    </div>
+                  </div>
+                </div>
+              </div> */}
+              <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
+                <div className="flex flex-col grow justify-center max-md:mt-5">
+                  <div className="flex flex-col p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600">
+                    <div className="gap-2 ">
+                    <Image
+                        loading="lazy"
+                        alt="..."
+                        src="/3 (2).png"
+                        width={120}
+                        
+                        height={385}
+                        className="shrink-0 my-auto max-w-full aspect-square w-[120px]"
+                      />
+                      <div className="flex flex-col ml-[10px]">
+                        <div className="text-base font-semibold tracking-wider leading-6 text-white">
+                        Introduction to Rocket Science  
                         </div>
                         <div className="mt-2 text-xs tracking-wider leading-4 text-white text-opacity-80">
                           Covers fundamentals, design, construction, operation and
@@ -130,7 +133,7 @@
                         </div>
                       </div>
                     </div>
-                    <div className="justify-center items-center px-16 py-3.5 mt-3.5 text-base font-bold tracking-wider leading-6 text-center text-white uppercase whitespace-nowrap bg-gray-800 rounded-lg border border-solid border-slate-600 max-md:px-5">
+                    <div className="justify-center items-center px-16 py-3.5 mt-5 text-base font-bold tracking-wider leading-6 text-center text-white uppercase whitespace-nowrap bg-gray-800 rounded-lg border border-solid border-slate-600 max-md:px-5">
                       Read
                     </div>
                   </div>
@@ -138,8 +141,8 @@
               </div>
               <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
                 <div className="flex flex-col grow justify-center max-md:mt-5">
-                  <div className="flex flex-col p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600">
-                    <div className="flex gap-2 items-start">
+                  <div className="flex flex-col p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600 h-full">
+                    <div className="gap-2 h-full">
                     <Image
                         loading="lazy"
                         alt="..."
@@ -149,7 +152,7 @@
                         height={385}
                         className="shrink-0 my-auto max-w-full aspect-square w-[120px]"
                       />
-                      <div className="flex flex-col">
+                      <div className="flex flex-col ml-[10px]">
                         <div className="text-base font-semibold tracking-wider leading-6 text-white">
                           Astro Physics
                         </div>
@@ -168,8 +171,8 @@
               </div>
               <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
                 <div className="flex flex-col grow justify-center max-md:mt-5">
-                  <div className="flex flex-col p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600">
-                    <div className="flex gap-2 items-start">
+                  <div className="flex flex-col p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600 h-full">
+                    <div className=" gap-2 items-start h-full">
                     <Image
                         loading="lazy"
                         alt="..."
@@ -179,7 +182,7 @@
                         height={385}
                         className="shrink-0 my-auto max-w-full aspect-square w-[120px]"
                       />
-                      <div className="flex flex-col">
+                      <div className="flex flex-col ml-[10px]">
                         <div className="text-base font-semibold tracking-wider leading-6 text-white">
                           Artificial Intelligence
                         </div>
@@ -189,7 +192,7 @@
                         </div>
                       </div>
                     </div>
-                    <div className="justify-center items-center px-16 py-3.5 mt-5 text-base font-bold tracking-wider leading-6 text-center text-white uppercase whitespace-nowrap bg-gray-800 rounded-lg border border-solid border-slate-600 max-md:px-5">
+                    <div className="justify-center items-center px-16 py-3.5 mt-5 text-base font-bold tracking-wider leading-6 text-center text-white uppercase whitespace-nowrap bg-gray-800 rounded-lg border border-solid border-slate-600 max-md:px-5 " >
                       Read
                     </div>
                   </div>
@@ -197,8 +200,8 @@
               </div>
               <div className="flex flex-col ml-5 w-3/12 max-md:ml-0 max-md:w-full">
                 <div className="flex flex-col grow justify-center max-md:mt-5">
-                  <div className="flex flex-col p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600">
-                    <div className="flex gap-2 items-start">
+                  <div className="flex flex-col p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600 h-full">
+                    <div className="gap-2 items-start h-full">
                     <Image
                         loading="lazy"
                         alt="..."
@@ -208,7 +211,7 @@
                         height={385}
                         className="shrink-0 my-auto max-w-full aspect-square w-[120px]"
                       />
-                      <div className="flex flex-col">
+                      <div className="flex flex-col ">
                         <div className="text-base font-semibold tracking-wider leading-6 text-white">
                           Astro Physics
                         </div>
