@@ -139,8 +139,8 @@ export default function Home() {
           </div>
         </div>
       )}
-      {pathname === "/signup" && <SignUpPage onClose={() => Router.back()} />}
-      {pathname === "/login" && <LoginPage onClose={() => Router.back()} />}
+      {/* {pathname === "/signup" && <SignUpPage onClose={() => Router.back()} />}
+      {pathname === "/login" && <LoginPage onClose={() => Router.back()} />} */}
     </div>
   );
 }

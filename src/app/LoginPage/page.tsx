@@ -31,12 +31,12 @@ function LoginPage() {
             Go
           </div>
         </div>
-        <div
+        {/* <div
           className="my-auto text-xl font-bold tracking-wider text-sky-500 cursor-pointer"
           onClick={handleSignOut}
         >
           Sign Out
-        </div>
+        </div> */}
       </div>
       <div className="flex flex-col items-center mt-10 max-w-md w-full px-5">
         <div className="text-xl font-semibold tracking-wider leading-7 text-white mb-5">
