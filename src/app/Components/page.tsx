@@ -4,6 +4,7 @@
   import { signOut } from "firebase/auth";
   import { useRouter } from "next/navigation";
   import { User } from "firebase/auth";
+  import Image from "next/image";
   function Components() {
   const router = useRouter();
   const [loading, setLoading] = useState(true); 
@@ -109,9 +110,13 @@
                 <div className="flex flex-col grow justify-center">
                   <div className=" p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600 ">
                     <div className="flex gap-2">
-                      <img
+                      <Image
                         loading="lazy"
-                        srcSet="..."
+                        alt="..."
+                        src="/3 (2).png"
+                        width={120}
+                        
+                        height={385}
                         className="shrink-0 my-auto max-w-full aspect-square w-[120px]"
                       />
                       <div className="flex flex-col">
@@ -135,10 +140,14 @@
                 <div className="flex flex-col grow justify-center max-md:mt-5">
                   <div className="flex flex-col p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600">
                     <div className="flex gap-2 items-start">
-                      <img
+                    <Image
                         loading="lazy"
-                        srcSet="..."
-                        className="shrink-0 mt-2.5 max-w-full aspect-square w-[120px]"
+                        alt="..."
+                        src="/3 (3).png"
+                        width={120}
+                        
+                        height={385}
+                        className="shrink-0 my-auto max-w-full aspect-square w-[120px]"
                       />
                       <div className="flex flex-col">
                         <div className="text-base font-semibold tracking-wider leading-6 text-white">
@@ -161,10 +170,14 @@
                 <div className="flex flex-col grow justify-center max-md:mt-5">
                   <div className="flex flex-col p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600">
                     <div className="flex gap-2 items-start">
-                      <img
+                    <Image
                         loading="lazy"
-                        srcSet="..."
-                        className="shrink-0 mt-2.5 max-w-full aspect-square w-[120px]"
+                        alt="..."
+                        src="/3 (1).png"
+                        width={120}
+                        
+                        height={385}
+                        className="shrink-0 my-auto max-w-full aspect-square w-[120px]"
                       />
                       <div className="flex flex-col">
                         <div className="text-base font-semibold tracking-wider leading-6 text-white">
@@ -186,10 +199,14 @@
                 <div className="flex flex-col grow justify-center max-md:mt-5">
                   <div className="flex flex-col p-3 w-full bg-gray-800 rounded-xl border border-solid border-slate-600">
                     <div className="flex gap-2 items-start">
-                      <img
+                    <Image
                         loading="lazy"
-                        srcSet="..."
-                        className="shrink-0 mt-2.5 max-w-full aspect-square w-[120px]"
+                        alt="..."
+                        src="/3 (2).png"
+                        width={120}
+                        
+                        height={385}
+                        className="shrink-0 my-auto max-w-full aspect-square w-[120px]"
                       />
                       <div className="flex flex-col">
                         <div className="text-base font-semibold tracking-wider leading-6 text-white">

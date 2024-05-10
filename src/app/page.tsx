@@ -81,7 +81,7 @@ export default function Home() {
               </div>
               <div
                 id="signUpDiv"
-                className={`flex flex-col items-center self-end px-8 py-6 font-semibold text-center leading-[140%] rounded-[25px] max-w-[450px] max-md:px-24 max-md:ml-8 max-md:mr-[-16px] ${
+                className={`flex flex-col items-center self-end px-8 py-6 font-semibold text-center leading-[140%] rounded-[25px] max-w-[450px] max-md:px-24 max-md:ml-8 max-md:mr-[-26px] ${
                   isSmallScreen
                     ? "bg-transparent border-transparent"
                     : "bg-white bg-opacity-10 border border-solid border-white border-opacity-20"
